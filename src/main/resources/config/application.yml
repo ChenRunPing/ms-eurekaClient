@@ -1,0 +1,24 @@
+server:
+  port: 8762
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: ture
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+logging:
+  config: classpath:logback-spring.xml
+  level.*: INFO
+
+crp:
+  log:
+    path: C:/crp-logs
+
+spring:
+  application:
+    name: ms-eurekaClient
+    instance_id: 001
